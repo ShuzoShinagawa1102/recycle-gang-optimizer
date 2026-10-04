@@ -1,19 +1,12 @@
 # Recycle Gang Optimizer
 
-Pythonによる経路最適化とFastAPIの計算窓口を管理するリポジトリです。Spring Bootから版付き入力を受け取り、経路候補を返します。
+Pythonによる経路計算とFastAPIの内部REST APIを管理する。基幹が渡す入力スナップショットから候補を計算し、結果を返す。開発の基準ブランチは`develop/v1`。
 
-更新日：2026-10-03。現在は設計文書のみ。計算コード、OpenAPI本体、ジョブ基盤、CI/CD、AWSは未実装です。
+ジョブ、業務データ、候補採用はSpring Bootが所有する。optimizerはステートレスに動作し、業務DBへ接続しない。
 
-## 責務
-
-指定された訪問先・車両・容量・時間制約から候補を計算します。予約・業者割当・採用済み計画の正は[recycle-gang](https://github.com/ShuzoShinagawa1102/recycle-gang)にあり、最終採用はSpring Bootが行います。基幹の業務DBへ接続しません。
-
-## ドキュメント
-
-- [構成・技術案](doc/architecture.md)
-- [計算API契約案](doc/api-contract.md)
-- [全体開発方針](https://github.com/ShuzoShinagawa1102/recycle-gang/blob/main/doc/architecture/development-baseline.md)
-- [基幹とのスナップショット連携](https://github.com/ShuzoShinagawa1102/recycle-gang/blob/main/doc/architecture/backend/optimizer-contract.md)
-- [共通CI/CD](https://github.com/ShuzoShinagawa1102/recycle-gang/blob/main/doc/process/ci-cd-policy.md)
-
-全体方針は基幹リポジトリを正とします。ソルバーや計算時間・制約の詳細はレビューで具体化します。
+- [構成とフォルダ](doc/architecture.md)
+- [計算API契約](doc/api-contract.md)
+- [全体アーキテクチャ](https://github.com/ShuzoShinagawa1102/recycle-gang/blob/develop/v1/doc/architecture/development-baseline.md)
+- [基幹との連携](https://github.com/ShuzoShinagawa1102/recycle-gang/blob/develop/v1/doc/architecture/backend/optimizer-contract.md)
+- [共通CI/CD](https://github.com/ShuzoShinagawa1102/recycle-gang/blob/develop/v1/doc/process/ci-cd-policy.md)
+- [実装状況](https://github.com/ShuzoShinagawa1102/recycle-gang/blob/develop/v1/doc/process/implementation-status.md)
